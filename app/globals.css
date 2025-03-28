@@ -12,8 +12,17 @@
     @apply h-[90%] flex flex-col justify-between
 }
 .sidebar-nav_element{
-    @apply rounded-xl py-0.5
+    @apply w-full flex rounded-xl py-1 px-2
 }
 .sidebar-link{
-    @apply flex m-3 gap-2
+    @apply flex m-3 gap-2;
+}
+.header{
+    @apply flex flex-col justify-between lg:hidden;
+}
+.mobilenav{
+    position: relative;
+    right: 20;
+
+    @apply flex justify-end ;
 }

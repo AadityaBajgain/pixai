@@ -21,12 +21,12 @@ const Sidebar = () => {
               {navLinks.slice(0, 6).map((link) => {
                 const isActive = link.route === pathname
                 return (
-                  <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'bg-[#7856ff] text-white rounded-xl py-0.5' : 'hover:bg-slate-200 text-gray-700'}`}>
-                    <Link className="sidebar-link" href={link.route}>
+                  <Link className="sidebar-link transition-transform duration-300 hover:translate-x-2" href={link.route} key={link.route}>
+                    <li className={`sidebar-nav_element transition-all duration-300 ease-in-out ${isActive ? 'bg-[#7856ff] text-white rounded-xl py-0.5' : 'hover:bg-slate-200 text-gray-700'}`}>
                       <Image src={link.icon} alt="logo" width={24} height={24} className={`${isActive && "brightness-200"}`} />
                       <span>{link.label}</span>
-                    </Link>
-                  </li>
+                    </li>
+                  </Link>
                 )
               })}
 
@@ -35,16 +35,18 @@ const Sidebar = () => {
               {navLinks.slice(6).map((link) => {
                 const isActive = link.route === pathname
                 return (
-                  <li key={link.route} className={`sidebar-nav_element ${isActive ? 'bg-[#7856ff] text-white' : 'hover:bg-slate-200 text-gray-700'}`}>
-                    <Link className="sidebar-link" href={link.route}>
+
+                  <Link className="sidebar-link transition-transform duration-300 hover:translate-x-1" href={link.route} key={link.route} >
+                    <li key={link.route} className={`sidebar-nav_element transition-all duration-300 ease-in-out ${isActive ? 'bg-[#7856ff] text-white rounded-xl py-0.5' : 'hover:bg-slate-200 text-gray-700'}`}>
                       <Image src={link.icon} alt="logo" width={24} height={24} className={`${isActive && "brightness-200"}`} />
                       <span>{link.label}</span>
-                    </Link>
-                  </li>
+                    </li>
+                  </Link>
+
                 )
               })}
               <li className="py-0.5 m-3">
-                <UserButton showName fallbackRedirectUrl="/" />
+                <UserButton showName afterSignOutUrl="/" />
               </li>
             </ul>
           </SignedIn>
